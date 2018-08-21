@@ -1,2 +1,3 @@
-def reverse(text_to_reverse):
-    return ' '.join(list(reversed(str(text_to_reverse).split())))
+def reverse(st):
+    st = ' '.join(list(reversed(str(st).split())))
+    return st
