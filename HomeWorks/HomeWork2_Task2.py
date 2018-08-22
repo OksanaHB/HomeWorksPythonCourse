@@ -1,4 +1,4 @@
-number=int(input("Input 4-digit number: "))
+number=int(input("Enter 4-digit number: "))
 print("Product of digits: ", (number//1000%10)*(number//100%10)*(number//10%10)*(number%10))
 print("Reversible number: ", str(''.join(reversed(str(number)))))
 ll=list(str(number))
