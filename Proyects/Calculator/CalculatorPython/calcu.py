@@ -1,13 +1,7 @@
-#!/usr/bin/python3
-# -*- coding: utf-8 -*-
-
-# @anthony wainer
-
 import sys, math
 from PyQt5 import QtCore, uic, QtWidgets
 
 
-# Cargar nuestro archivo .ui
 form_class = uic.loadUiType("calculator.ui")[0]
 
 def calcular_fibonachi(n):
@@ -24,16 +18,10 @@ def calcular_fibonachi(n):
 def num(self,s):
     self.textB.insertPlainText(s)
 
-def function_before(self,ff):
-    copy_a=self.textB.toPlainText()
-    self.textB.clear()
-    self.textB.insertPlainText(ff+"("+ copy_a +")")
 
-def function_after(self,ff):
-    copy_a=self.textB.toPlainText()
-    self.textB.clear()
-    self.textB.insertPlainText("("+ copy_a +")"+ff)
-
+def label_mostrar(self,part1,part2):
+    self.MyLabel.clear()
+    self.MyLabel.setText(str(part1)+" = " + str(part2))
 def calcular_factorial(n):
     if n == 0:
         return 1
@@ -69,7 +57,9 @@ def calcular (self,div):
   if (len(div)>2):
     try:
      resultado = eval(str(div))
+     label_mostrar(self,div,resultado)
      pantalla(self,str(resultado))
+
     except:
       error(self)
   else:
@@ -110,7 +100,7 @@ class MyWindowClass(QtWidgets.QMainWindow, form_class):
     self.btfib.clicked.connect(self.fibonachi)
 
 
- # Evento del boton btn_CtoF
+ 
  def btuno(self):
     return num(self,"1")
  def btdos(self):
@@ -136,8 +126,6 @@ class MyWindowClass(QtWidgets.QMainWindow, form_class):
  def parD(self):
     return num(self,")")
  
- #def factorial(self):
- #   return num(self,"!")
  def btms(self):
   return operador(self,'+')
  def btmen(self):
@@ -158,6 +146,7 @@ class MyWindowClass(QtWidgets.QMainWindow, form_class):
          pa += p[i]
     pantalla(self,str(pa))
  def bc(self):
+  self.MyLabel.clear()
   self.textB.clear()
 
  def igu(self):
@@ -167,32 +156,30 @@ class MyWindowClass(QtWidgets.QMainWindow, form_class):
  def pot(self):
   p = self.textB.toPlainText()
   r = pow(float(p),2)
+  label_mostrar(self,"("+str(p)+")²",str(r))
   pantalla(self,str(r))
-
-
-
- 
 
  def rad(self):
   p = self.textB.toPlainText()
   r = math.sqrt(float(p))
+  label_mostrar(self,"√("+str(p)+")",str(r))
   pantalla(self,str(r))
 
  def factorial(self):
    div = self.textB.toPlainText()
    p=calcular_num(div)
    r =calcular_factorial(int(p))
+   label_mostrar(self,"("+str(int(p))+")!",str(r))
    pantalla(self,str(r))
 
  def fibonachi(self):
    div = self.textB.toPlainText()
    p=calcular_num(div)
    r =calcular_fibonachi(int(p))
+   label_mostrar(self,"Fibonachi("+str(int(p))+")",str(r))
    pantalla(self,str(r))
-try:
-  app = QtWidgets.QApplication(sys.argv)
-  MyWindow = MyWindowClass(None)
-  MyWindow.show()
-  app.exec_()
-except:
-  error(MyWindow)
+
+app = QtWidgets.QApplication(sys.argv)
+MyWindow = MyWindowClass(None)
+MyWindow.show()
+app.exec_()

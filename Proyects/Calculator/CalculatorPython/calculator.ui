@@ -314,26 +314,6 @@
      <string>-</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="btporc">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>400</y>
-      <width>70</width>
-      <height>60</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>%</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="btpot">
     <property name="geometry">
      <rect>
@@ -531,7 +511,7 @@
      <string>fibonachi(n)</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="MyLabel">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -542,15 +522,41 @@
     </property>
     <property name="font">
      <font>
+      <family>MS Sans Serif</family>
       <pointsize>12</pointsize>
+      <weight>50</weight>
       <italic>true</italic>
+      <bold>false</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: italic 12pt &quot;MS Sans Serif&quot;;</string>
     </property>
     <property name="locale">
      <locale language="Ukrainian" country="Ukraine"/>
     </property>
     <property name="text">
-     <string>Привіт! спробуй мій калькулятор.</string>
+     <string>Привіт! Cпробуй мій калькулятор.</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btPorc">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>400</y>
+      <width>70</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
    <zorder>btrad</zorder>
@@ -569,7 +575,6 @@
    <zorder>bt7</zorder>
    <zorder>bt1</zorder>
    <zorder>btmenos</zorder>
-   <zorder>btporc</zorder>
    <zorder>btpot</zorder>
    <zorder>btpor</zorder>
    <zorder>btdes</zorder>
@@ -579,7 +584,8 @@
    <zorder>textB</zorder>
    <zorder>btfactorial</zorder>
    <zorder>btfib</zorder>
-   <zorder>label</zorder>
+   <zorder>MyLabel</zorder>
+   <zorder>btPorc</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
